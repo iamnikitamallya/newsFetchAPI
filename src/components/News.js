@@ -15,7 +15,7 @@ export class News extends Component {
   //One of the react lifecycle
   async componentDidMount() {
     let url =
-      "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=b6aebbc4274040ada1ccf8a86760fa0e";
+      "Add your API Key here";
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({ articles: parsedData.articles });

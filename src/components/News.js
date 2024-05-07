@@ -2,36 +2,25 @@ import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 
 export class News extends Component {
-  articles = [
-    {
-      source: { id: "", name: "" },
-      author: "",
-      title: "",
-      description: "",
-      url: "",
-      urlToImage: "",
-      publishedAt: "",
-      content: "",
-    },
-  ];
+  articles = [];
 
   constructor() {
     super();
     this.state = {
-      articles: this.articles,
+      articles: [],
       loading: false,
     };
   }
 
   //One of the react lifecycle
-    async componentDidMount() {
-        let url =
-          "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=b6aebbc4274040ada1ccf8a86760fa0e";
-        let data = await fetch(url);
-        let parsedData = await data.json();
-        this.setState({articles: parsedData.articles})
+  async componentDidMount() {
+    let url =
+      "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=b6aebbc4274040ada1ccf8a86760fa0e";
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    this.setState({ articles: parsedData.articles });
   }
-    
+
   render() {
     return (
       <>
